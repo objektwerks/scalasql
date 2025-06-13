@@ -27,10 +27,7 @@ private object Store:
       statement.execute(sql)
     )
 
-    DbClient.DataSource(
-      datasource,
-      config = new scalasql.Config {}
-    )
+    DbClient.DataSource(dataSource = datasource)
 
 final class Store(config: Config):
   private val ds = Store.createDataSource(config)

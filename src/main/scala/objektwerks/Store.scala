@@ -20,9 +20,9 @@ private object Store:
       config.getString("ds.password")
     )
 
-    Using.Manager( use =>
-      val connection = use( datasource.getConnection )
-      val statement = use( connection.createStatement )
+    Using.Manager( manager =>
+      val connection = manager( datasource.getConnection )
+      val statement = manager( connection.createStatement )
       val sql = Files.readString( Path.of( config.getString("ds.ddl") ) )
       statement.execute(sql)
     )

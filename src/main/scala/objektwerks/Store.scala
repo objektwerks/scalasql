@@ -8,8 +8,8 @@ import org.h2.jdbcx.JdbcConnectionPool
 
 import scala.util.Using
 
+import scalasql.H2Dialect.*
 import scalasql.core.DbClient
-import scalasql.dialects.H2Dialect.*
 import scalasql.simple.*
 
 private object Store:

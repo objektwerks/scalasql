@@ -30,10 +30,10 @@ private object Store:
     DbClient.DataSource(datasource)
 
 final class Store(config: Config):
-  private val ds = Store.init(config)
+  private val datasource = Store.init(config)
 
   def addTodo(todo: Todo): Todo =
-    val id = ds.transaction { tx =>
+    val id = datasource.transaction { tx =>
       tx.run(
         Todo
           .insert
@@ -43,7 +43,7 @@ final class Store(config: Config):
     todo.copy(id = id)
 
   def updateTodo(todo: Todo): Int =
-    ds.transaction { tx =>
+    datasource.transaction { tx =>
       tx.run(
         Todo
           .update(_.id === todo.id)
@@ -52,7 +52,7 @@ final class Store(config: Config):
     }
 
   def listTodos(): Seq[Todo] =
-    ds.transaction { tx =>
+    datasource.transaction { tx =>
       tx.run(
         Todo.select
       )

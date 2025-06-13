@@ -9,8 +9,8 @@ import org.h2.jdbcx.JdbcConnectionPool
 import scala.util.Using
 
 import scalasql.core.DbClient
-import scalasql.H2Dialect.*
-// import scalasql.simple.{*, given}
+import scalasql.dialects.H2Dialect.*
+import scalasql.simple.*
 
 private object Store:
   private def createDataSource(config: Config): DbClient.DataSource =
@@ -33,12 +33,18 @@ private object Store:
     )
 
 final class Store(config: Config):
-  private val db: DbClient.DataSource = Store.createDataSource(config)
+  private val ds = Store.createDataSource(config)
 
   def close(): Unit =
-    db.asInstanceOf[JdbcConnectionPool].dispose()
+    ds.asInstanceOf[JdbcConnectionPool].dispose()
 
-  def addTodo(todo: Todo): Todo = ???
+  def addTodo(todo: Todo): Todo =
+    val id = ds.transaction { tx =>
+      tx.run(
+        Todo.insert.columns(_.task := todo.task)
+      )
+    }
+    todo.copy(id = id)
 
   def updateTodo(todo: Todo): Int = ???
 

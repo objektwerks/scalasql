@@ -38,7 +38,9 @@ final class Store(config: Config):
   def addTodo(todo: Todo): Todo =
     val id = ds.transaction { tx =>
       tx.run(
-        Todo.insert.columns(_.task := todo.task)
+        Todo
+          .insert
+          .columns(_.task := todo.task)
       )
     }
     todo.copy(id = id)
@@ -46,7 +48,9 @@ final class Store(config: Config):
   def updateTodo(todo: Todo): Int =
     ds.transaction { tx =>
       tx.run(
-        Todo.update(_.id === todo.id).set(_.task := todo.task)
+        Todo
+          .update(_.id === todo.id)
+          .set(_.task := todo.task)
       )
     }
 

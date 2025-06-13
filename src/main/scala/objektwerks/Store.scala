@@ -35,9 +35,6 @@ private object Store:
 final class Store(config: Config):
   private val ds = Store.createDataSource(config)
 
-  def close(): Unit =
-    ds.asInstanceOf[JdbcConnectionPool].dispose()
-
   def addTodo(todo: Todo): Todo =
     val id = ds.transaction { tx =>
       tx.run(

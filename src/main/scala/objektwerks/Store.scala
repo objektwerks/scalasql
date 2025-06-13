@@ -42,7 +42,7 @@ final class Store(config: Config):
     }
     todo.copy(id = id)
 
-  def updateTodo(todo: Todo): Int =
+  def updateTodo(todo: Todo): Count =
     datasource.transaction { tx =>
       tx.run(
         Todo

@@ -15,9 +15,9 @@ final class StoreTest extends AnyFunSuite:
     assert( todo.id > 0 )
 
     val updatedTodo = todo.copy(task = "wash and dry car")
-    val updated = store.updateTodo(updatedTodo)
+    val count = store.updateTodo(updatedTodo)
     println(s"*** Update Todo - $updatedTodo")
-    assert( updated == 1 )
+    assert( count == 1 )
     
     val todos = store.listTodos()
     println(s"*** List Todos = ${todos.toString}")

@@ -18,3 +18,7 @@ Results
 2. updateTodo - 5.199
 3. listTodos - 8.260
 >Total time: 606 s (10:06), 10 warmups, 10 iterations, average time in microseconds, completed **2025.6.13**
+
+Resources
+---------
+* [ScalaSql Named Tuples](https://bishabosha.github.io/articles/scalasql-simpletable.html)

@@ -2,6 +2,8 @@ package objektwerks
 
 import scalasql.namedtuples.SimpleTable
 
-final case class Todo(id: Int = 0, task: String)
+type Count = Int
 
 object Todo extends SimpleTable[Todo]
+
+final case class Todo(id: Int = 0, task: String)

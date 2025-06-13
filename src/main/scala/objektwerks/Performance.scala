@@ -13,8 +13,8 @@ import org.openjdk.jmh.annotations.*
 @Warmup(iterations = 10)
 @Measurement(iterations = 10)
 @Fork(1)
-class Performance():
-  val store = Store( ConfigFactory.load("store.conf") )
+class TodoPerformance():
+  val store = TodoStore( ConfigFactory.load("store.conf") )
   var todo = Todo(task = "")
 
   @Benchmark

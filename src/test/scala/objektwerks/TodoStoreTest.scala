@@ -4,9 +4,9 @@ import com.typesafe.config.ConfigFactory
 
 import org.scalatest.funsuite.AnyFunSuite
 
-final class StoreTest extends AnyFunSuite:
+final class TodoStoreTest extends AnyFunSuite:
   val conf = ConfigFactory.load("test.conf")
-  val store = Store(conf)
+  val store = TodoStore(conf)
 
   test("store"):
     var todo = Todo(task = "wash car")
@@ -18,7 +18,7 @@ final class StoreTest extends AnyFunSuite:
     val count = store.updateTodo(updatedTodo)
     println(s"*** Update Todo - $updatedTodo")
     assert( count == 1 )
-    
+
     val todos = store.listTodos()
     println(s"*** List Todos = ${todos.toString}")
     assert( todos.nonEmpty )

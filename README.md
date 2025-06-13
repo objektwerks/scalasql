@@ -21,4 +21,5 @@ Results
 
 Resources
 ---------
+* [ScalaSql Github](https://github.com/com-lihaoyi/scalasql)
 * [ScalaSql Named Tuples](https://bishabosha.github.io/articles/scalasql-simpletable.html)

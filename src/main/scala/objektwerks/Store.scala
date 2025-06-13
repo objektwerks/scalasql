@@ -27,7 +27,7 @@ private object Store:
       statement.execute(sql)
     )
 
-    DbClient.DataSource(dataSource = datasource)
+    DbClient.DataSource(datasource)
 
 final class Store(config: Config):
   private val ds = Store.createDataSource(config)

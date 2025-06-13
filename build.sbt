@@ -2,7 +2,7 @@ enablePlugins(JmhPlugin)
 
 name := "scalasql"
 organization := "objektwerks"
-version := "2.0.0"
+version := "3.0.0"
 scalaVersion := "3.7.1"
 libraryDependencies ++= {
   Seq(

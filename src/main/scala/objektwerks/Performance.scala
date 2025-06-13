@@ -24,7 +24,7 @@ class Performance():
     todo
 
   @Benchmark
-  def updateTodo(): Int =
+  def updateTodo(): Count =
     todo = todo.copy(task = UUID.randomUUID.toString)
     store.updateTodo(todo)
 

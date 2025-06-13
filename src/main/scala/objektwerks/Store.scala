@@ -46,6 +46,11 @@ final class Store(config: Config):
     }
     todo.copy(id = id)
 
-  def updateTodo(todo: Todo): Int = ???
+  def updateTodo(todo: Todo): Int =
+    ds.transaction { tx =>
+      tx.run(
+        Todo.update(_.id === todo.id).set(_.task := todo.task)
+      )
+    }
 
   def listTodos(): Seq[Todo] = ???

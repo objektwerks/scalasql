@@ -53,4 +53,9 @@ final class Store(config: Config):
       )
     }
 
-  def listTodos(): Seq[Todo] = ???
+  def listTodos(): Seq[Todo] =
+    ds.transaction { tx =>
+      tx.run(
+        Todo.select
+      )
+    }

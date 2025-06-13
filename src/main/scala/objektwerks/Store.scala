@@ -13,7 +13,7 @@ import scalasql.dialects.H2Dialect.*
 import scalasql.simple.*
 
 private object Store:
-  private def createDataSource(config: Config): DbClient.DataSource =
+  private def init(config: Config): DbClient.DataSource =
     val datasource = JdbcConnectionPool.create(
       config.getString("ds.url"),
       config.getString("ds.user"),
@@ -30,7 +30,7 @@ private object Store:
     DbClient.DataSource(datasource)
 
 final class Store(config: Config):
-  private val ds = Store.createDataSource(config)
+  private val ds = Store.init(config)
 
   def addTodo(todo: Todo): Todo =
     val id = ds.transaction { tx =>

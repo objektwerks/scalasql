@@ -21,8 +21,8 @@ private object Store:
     )
 
     Using.Manager( manager =>
-      val connection = manager( datasource.getConnection )
-      val statement = manager( connection.createStatement )
+      val connection = manager( datasource.getConnection() )
+      val statement = manager( connection.createStatement() )
       val sql = Files.readString( Path.of( config.getString("ds.ddl") ) )
       statement.execute(sql)
     )

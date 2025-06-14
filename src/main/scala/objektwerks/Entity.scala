@@ -3,6 +3,8 @@ package objektwerks
 import java.time.LocalDate
 import java.util.UUID
 
+import scalasql.namedtuples.SimpleTable
+
 sealed trait Entity:
   val id: Long
 
@@ -20,6 +22,8 @@ final case class Account(
   pin: String = Pin.newInstance,
   activated: String = Entity.now
 ) extends Entity derives CanEqual
+
+object Account extends SimpleTable[Account]
 
 final case class Participant(
   id: Long = 0,

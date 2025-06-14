@@ -6,4 +6,4 @@ type Count = Int
 
 object Todo extends SimpleTable[Todo]
 
-final case class Todo(id: Int = 0, task: String)
+final case class Todo(id: Int = 0, task: String) derives CanEqual

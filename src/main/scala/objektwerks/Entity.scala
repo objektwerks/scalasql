@@ -31,6 +31,8 @@ final case class Participant(
   activated: String = Entity.now
 ) extends Entity derives CanEqual
 
+object Participant extends SimpleTable[Participant]
+
 final case class Survey(
   id: Long = 0,
   accountId: Long,

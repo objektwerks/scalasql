@@ -49,3 +49,13 @@ final case class Question(
   typeof: String = "",
   created: String = Entity.now
 ) extends Entity derives CanEqual
+
+final case class Answer(
+  id: Long = 0,
+  surveyId: Long,
+  questionId: Long,
+  participantId: Long,
+  answers: List[String],
+  typeof: String = "",
+  answered: String = Entity.now
+) extends Entity derives CanEqual

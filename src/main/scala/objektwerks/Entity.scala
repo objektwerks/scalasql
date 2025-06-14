@@ -69,3 +69,5 @@ final case class Answer(
   typeof: String = "",
   answered: String = Entity.now
 ) extends Entity derives CanEqual
+
+object Answer extends SimpleTable[Answer]

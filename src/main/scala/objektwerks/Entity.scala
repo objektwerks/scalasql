@@ -1,0 +1,13 @@
+package objektwerks
+
+import java.time.LocalDate
+
+sealed trait Entity:
+  val id: Long
+
+object Entity:
+  def now: String = LocalDate.now.toString
+
+  def nowMinusOneDay: String = LocalDate.now.minusDays(1).toString
+
+  def nowPlusOneDay: String = LocalDate.now.plusDays(1).toString

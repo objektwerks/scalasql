@@ -26,3 +26,17 @@ final case class Participant(
   email: String,
   activated: String = Entity.now
 ) extends Entity derives CanEqual
+
+final case class Survey(
+  id: Long = 0,
+  accountId: Long,
+  title: String,
+  created: String = Entity.now,
+  released: String = Entity.nowMinusOneDay
+) extends Entity derives CanEqual {
+    def isReleased: Boolean =
+      val created = LocalDate.parse(this.created)
+      val released = LocalDate.parse(this.released)
+      if released.isEqual(created) || released.isAfter(created) then true
+      else false
+}

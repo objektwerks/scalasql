@@ -1,6 +1,7 @@
 package objektwerks
 
 import java.time.LocalDate
+import java.util.UUID
 
 sealed trait Entity:
   val id: Long

@@ -40,3 +40,12 @@ final case class Survey(
       if released.isEqual(created) || released.isAfter(created) then true
       else false
 }
+
+final case class Question(
+  id: Long = 0,
+  surveyId: Long,
+  question: String,
+  choices: List[String],
+  typeof: String = "",
+  created: String = Entity.now
+) extends Entity derives CanEqual

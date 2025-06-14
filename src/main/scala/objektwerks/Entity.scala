@@ -47,6 +47,8 @@ final case class Survey(
       else false
 }
 
+object Survey extends SimpleTable[Survey]
+
 final case class Question(
   id: Long = 0,
   surveyId: Long,

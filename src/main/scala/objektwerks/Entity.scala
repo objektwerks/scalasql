@@ -53,7 +53,7 @@ final case class Question(
   id: Long = 0,
   surveyId: Long,
   question: String,
-  choices: List[String],
+  choices: String, // choices: List[String] can't be used with SimpleTable; so choices would be comma delimited
   typeof: String = "",
   created: String = Entity.now
 ) extends Entity derives CanEqual
@@ -65,7 +65,7 @@ final case class Answer(
   surveyId: Long,
   questionId: Long,
   participantId: Long,
-  answers: List[String],
+  answers: String, // answers: List[String] can't be used with SimpleTable; so answers would be comma delimited
   typeof: String = "",
   answered: String = Entity.now
 ) extends Entity derives CanEqual

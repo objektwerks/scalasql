@@ -58,6 +58,8 @@ final case class Question(
   created: String = Entity.now
 ) extends Entity derives CanEqual
 
+object Question extends SimpleTable[Question]
+
 final case class Answer(
   id: Long = 0,
   surveyId: Long,

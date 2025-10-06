@@ -9,7 +9,7 @@ libraryDependencies ++= {
     "com.lihaoyi" %% "scalasql-namedtuples" % "0.2.2",
     "com.h2database" % "h2" % "2.4.240",
     "com.typesafe" % "config" % "1.4.3",
-    "ch.qos.logback" % "logback-classic" % "1.5.18",
+    "ch.qos.logback" % "logback-classic" % "1.5.19",
     "org.scalatest" %% "scalatest" % "3.2.19" % Test
   )
 }

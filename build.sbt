@@ -3,7 +3,7 @@ enablePlugins(JmhPlugin)
 name := "scalasql"
 organization := "objektwerks"
 version := "5.0.0"
-scalaVersion := "3.7.4-RC3"
+scalaVersion := "3.7.4"
 libraryDependencies ++= {
   Seq(
     "com.lihaoyi" %% "scalasql-namedtuples" % "0.2.3",

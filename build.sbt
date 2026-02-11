@@ -6,7 +6,7 @@ version := "5.0.0"
 scalaVersion := "3.8.2-RC1"
 libraryDependencies ++= {
   Seq(
-    "com.lihaoyi" %% "scalasql-namedtuples" % "0.2.7",
+    "com.lihaoyi" %% "scalasql-namedtuples" % "0.3.0",
     "com.h2database" % "h2" % "2.4.240",
     "com.typesafe" % "config" % "1.4.3",
     "ch.qos.logback" % "logback-classic" % "1.5.25",
